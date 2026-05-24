@@ -1,0 +1,86 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "blockloom/icon",
+  "version": "1.0.0",
+  "title": "Icon",
+  "category": "blockloom",
+  "icon": "star-filled",
+  "description": "Display a single icon with optional link and accessibility label.",
+  "textdomain": "blockloom",
+  "example": {
+    "attributes": {
+      "iconName": "solid/star",
+      "iconSize": 40,
+      "iconColor": "#0ea5e9",
+      "alignment": "center"
+    }
+  },
+  "attributes": {
+    "iconName": {
+      "type": "string",
+      "default": "solid/star"
+    },
+    "iconSize": {
+      "type": "number",
+      "default": 40
+    },
+    "iconColor": {
+      "type": "string",
+      "default": ""
+    },
+    "iconHoverColor": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "bgHoverColor": {
+      "type": "string",
+      "default": ""
+    },
+    "borderRadius": {
+      "type": "string",
+      "default": "none"
+    },
+    "padding": {
+      "type": "number",
+      "default": 0
+    },
+    "accessibilityLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "linkNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "linkRel": {
+      "type": "string",
+      "default": ""
+    },
+    "alignment": {
+      "type": "string",
+      "default": "left"
+    },
+    "hoverAnimation": {
+      "type": "string",
+      "default": "none"
+    }
+  },
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

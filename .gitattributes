@@ -1,0 +1,65 @@
+# ============================================================
+# Auto-detect text files and normalise line endings
+# ============================================================
+* text=auto
+
+# ============================================================
+# Force LF for all text-based source files
+# Prevents CRLF issues when Windows developers contribute
+# ============================================================
+*.php        text eol=lf
+*.js         text eol=lf
+*.json       text eol=lf
+*.scss       text eol=lf
+*.css        text eol=lf
+*.md         text eol=lf
+*.txt        text eol=lf
+*.xml        text eol=lf
+*.xml.dist   text eol=lf
+*.neon       text eol=lf
+*.html       text eol=lf
+*.gitignore  text eol=lf
+*.gitattributes text eol=lf
+
+# ============================================================
+# Binary files — no line ending conversion
+# ============================================================
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.webp   binary
+*.svg    binary
+*.ico    binary
+*.woff   binary
+*.woff2  binary
+*.ttf    binary
+*.eot    binary
+*.zip    binary
+*.map    binary
+
+# ============================================================
+# Export ignore — excluded from git archive / release ZIPs
+# These are development-only files not needed in a distributed plugin
+# ============================================================
+.gitattributes        export-ignore
+.gitignore            export-ignore
+.npmrc                export-ignore
+phpcs.xml.dist        export-ignore
+phpstan.neon          export-ignore
+composer.json         export-ignore
+composer.lock         export-ignore
+package.json          export-ignore
+package-lock.json     export-ignore
+webpack.config.js     export-ignore
+.github/              export-ignore
+.vscode/              export-ignore
+.idea/                export-ignore
+node_modules/         export-ignore
+vendor/               export-ignore
+src/                  export-ignore
+scripts/              export-ignore
+docs/                 export-ignore
+CHANGELOG.md          export-ignore
+README.md             export-ignore
+*.test.js             export-ignore

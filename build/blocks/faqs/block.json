@@ -1,0 +1,95 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "blockloom/faqs",
+  "version": "1.0.0",
+  "title": "FAQs",
+  "category": "blockloom",
+  "icon": "editor-help",
+  "description": "Accordion-style FAQ section with optional schema markup.",
+  "textdomain": "blockloom",
+  "example": {
+    "attributes": {
+      "iconStyle": "chevron"
+    },
+    "innerBlocks": [
+      {
+        "name": "blockloom/faq-item",
+        "attributes": {
+          "question": "What is Blockloom?",
+          "answer": "A collection of Gutenberg blocks."
+        }
+      },
+      {
+        "name": "blockloom/faq-item",
+        "attributes": {
+          "question": "Is it free?",
+          "answer": "Yes, completely free and open source."
+        }
+      }
+    ]
+  },
+  "attributes": {
+    "allowMultiple": {
+      "type": "boolean",
+      "default": false
+    },
+    "defaultOpen": {
+      "type": "string",
+      "default": "none"
+    },
+    "enableSchema": {
+      "type": "boolean",
+      "default": true
+    },
+    "iconStyle": {
+      "type": "string",
+      "default": "chevron"
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "after"
+    },
+    "questionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "answerColor": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "activeBackgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "borderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "borderRadius": {
+      "type": "number",
+      "default": 0
+    },
+    "iconColor": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "providesContext": {
+    "blockloom/iconStyle": "iconStyle"
+  },
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

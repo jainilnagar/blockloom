@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "blockloom/icon-list-item",
+  "version": "1.0.0",
+  "title": "Icon List Item",
+  "category": "blockloom",
+  "icon": "editor-ul",
+  "description": "A single item within an Icon List block.",
+  "textdomain": "blockloom",
+  "parent": [
+    "blockloom/icon-list"
+  ],
+  "attributes": {
+    "iconName": {
+      "type": "string",
+      "default": ""
+    },
+    "text": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "reusable": false
+  },
+  "usesContext": [
+    "blockloom/listIconName",
+    "blockloom/iconSize"
+  ],
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "style": "file:./style-index.css"
+}

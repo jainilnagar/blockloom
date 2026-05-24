@@ -1,0 +1,81 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "blockloom/progress-bar",
+  "version": "1.0.0",
+  "title": "Progress Bar",
+  "category": "blockloom",
+  "icon": "minus",
+  "description": "Display a progress bar with title, value, and scroll animation.",
+  "textdomain": "blockloom",
+  "example": {
+    "attributes": {
+      "title": "JavaScript",
+      "fillPercent": 80,
+      "filledColor": "#0ea5e9"
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "titleColor": {
+      "type": "string",
+      "default": ""
+    },
+    "fillPercent": {
+      "type": "number",
+      "default": 75
+    },
+    "customLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "barHeight": {
+      "type": "number",
+      "default": 16
+    },
+    "barRadius": {
+      "type": "number",
+      "default": 8
+    },
+    "labelPosition": {
+      "type": "string",
+      "default": "above"
+    },
+    "filledColor": {
+      "type": "string",
+      "default": ""
+    },
+    "trackColor": {
+      "type": "string",
+      "default": ""
+    },
+    "valueColor": {
+      "type": "string",
+      "default": ""
+    },
+    "striped": {
+      "type": "boolean",
+      "default": false
+    },
+    "animateStripes": {
+      "type": "boolean",
+      "default": false
+    },
+    "animateOnScroll": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

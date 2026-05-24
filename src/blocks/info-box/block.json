@@ -1,0 +1,163 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "blockloom/info-box",
+  "version": "1.0.0",
+  "title": "Info Box",
+  "category": "blockloom",
+  "icon": "info",
+  "description": "A card with icon, title, description and optional CTA link.",
+  "textdomain": "blockloom",
+  "example": {
+    "attributes": {
+      "iconName": "solid/star",
+      "title": "Our Feature",
+      "description": "A short description of this amazing feature.",
+      "iconColor": "#0ea5e9",
+      "layout": "icon-top"
+    }
+  },
+  "attributes": {
+    "iconName": {
+      "type": "string",
+      "default": "solid/star"
+    },
+    "iconSize": {
+      "type": "number",
+      "default": 40
+    },
+    "iconColor": {
+      "type": "string",
+      "default": ""
+    },
+    "iconHoverColor": {
+      "type": "string",
+      "default": ""
+    },
+    "iconBackgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "iconBgHoverColor": {
+      "type": "string",
+      "default": ""
+    },
+    "iconBorderRadius": {
+      "type": "string",
+      "default": "none"
+    },
+    "iconPadding": {
+      "type": "number",
+      "default": 0
+    },
+    "layout": {
+      "type": "string",
+      "default": "icon-top"
+    },
+    "contentAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "h3"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "titleColor": {
+      "type": "string",
+      "default": ""
+    },
+    "titleHoverColor": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default": ""
+    },
+    "descriptionHoverColor": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "hoverBgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "hoverBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "borderWidth": {
+      "type": "number",
+      "default": 0
+    },
+    "borderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "borderRadius": {
+      "type": "number",
+      "default": 0
+    },
+    "boxShadow": {
+      "type": "boolean",
+      "default": false
+    },
+    "paddingTop": {
+      "type": "number",
+      "default": 24
+    },
+    "paddingRight": {
+      "type": "number",
+      "default": 24
+    },
+    "paddingBottom": {
+      "type": "number",
+      "default": 24
+    },
+    "paddingLeft": {
+      "type": "number",
+      "default": 24
+    },
+    "ctaText": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaColor": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaHoverColor": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaNewTab": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

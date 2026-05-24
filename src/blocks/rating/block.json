@@ -1,0 +1,103 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "blockloom/rating",
+  "version": "1.0.0",
+  "title": "Rating",
+  "category": "blockloom",
+  "icon": "star-half",
+  "description": "Display a star or bar rating with optional numeric value and AggregateRating schema.",
+  "textdomain": "blockloom",
+  "example": {
+    "attributes": {
+      "rating": 4.5,
+      "displayStyle": "stars",
+      "showNumeric": true,
+      "title": "Overall Rating",
+      "filledColor": "#f59e0b"
+    }
+  },
+  "attributes": {
+    "displayStyle": {
+      "type": "string",
+      "default": "stars"
+    },
+    "rating": {
+      "type": "number",
+      "default": 4.5
+    },
+    "showNumeric": {
+      "type": "boolean",
+      "default": true
+    },
+    "numericFormat": {
+      "type": "string",
+      "default": "value-scale"
+    },
+    "starSize": {
+      "type": "number",
+      "default": 32
+    },
+    "barHeight": {
+      "type": "number",
+      "default": 12
+    },
+    "barRadius": {
+      "type": "number",
+      "default": 6
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "p"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": ""
+    },
+    "filledColor": {
+      "type": "string",
+      "default": "#f59e0b"
+    },
+    "emptyColor": {
+      "type": "string",
+      "default": "#e5e7eb"
+    },
+    "numericColor": {
+      "type": "string",
+      "default": ""
+    },
+    "alignment": {
+      "type": "string",
+      "default": "left"
+    },
+    "enableSchema": {
+      "type": "boolean",
+      "default": false
+    },
+    "schemaItemName": {
+      "type": "string",
+      "default": ""
+    },
+    "schemaRatingCount": {
+      "type": "number",
+      "default": 1
+    },
+    "barAnimateOnScroll": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

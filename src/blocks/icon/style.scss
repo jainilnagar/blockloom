@@ -1,0 +1,86 @@
+.blockloom-icon {
+	display: block;
+	line-height: 1;
+
+	&.align-left {
+		text-align: left;
+	}
+
+	&.align-center {
+		text-align: center;
+	}
+
+	&.align-right {
+		text-align: right;
+	}
+
+	&__link {
+		display: inline-flex;
+		text-decoration: none;
+		color: inherit;
+
+		&:hover {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		&:hover &.hover-scale-up {
+			transform: scale(1.2);
+		}
+
+		&:hover &.hover-scale-down {
+			transform: scale(0.8);
+		}
+
+		&:hover &.hover-rotate-right {
+			transform: rotate(15deg);
+		}
+
+		&:hover &.hover-rotate-left {
+			transform: rotate(-15deg);
+		}
+
+		&:hover &.hover-fade {
+			opacity: 0.65;
+		}
+	}
+
+	&__wrapper {
+		color: var(--bl-icon-color, currentColor);
+		background-color: var(--bl-icon-bg, transparent);
+		transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+
+		svg {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		// Hover states driven by CSS custom props
+		&:hover {
+			color: var(--bl-icon-hover-color, currentColor);
+			background-color: var(--bl-icon-hover-bg, transparent);
+		}
+
+		// Animations
+		&.hover-scale-up:hover {
+			transform: scale(1.2);
+		}
+
+		&.hover-scale-down:hover {
+			transform: scale(0.8);
+		}
+
+		&.hover-rotate-right:hover {
+			transform: rotate(15deg);
+		}
+
+		&.hover-rotate-left:hover {
+			transform: rotate(-15deg);
+		}
+
+		&.hover-fade:hover {
+			opacity: 0.65;
+		}
+	}
+}

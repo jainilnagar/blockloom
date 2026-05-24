@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<ruleset name="Blockloom">
+    <description>Blockloom WordPress Coding Standards</description>
+
+    <!-- Minimize console output noise by showing progress and sniff codes -->
+    <arg value="ps"/>
+    <arg name="colors"/>
+
+    <!-- Only scan files with these extensions (excludes JS and CSS from PHPCS) -->
+    <arg name="extensions" value="php"/>
+
+    <!-- Set the target path to scan (the current directory) -->
+    <file>.</file>
+
+    <!-- Exclude external dependencies and build directories -->
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/build/*</exclude-pattern>
+    <exclude-pattern>*/dist/*</exclude-pattern>
+    <exclude-pattern>*/scripts/*</exclude-pattern>
+
+    <!-- Core WordPress Coding Standards Rule -->
+    <rule ref="WordPress">
+        <!-- Allow short array syntax [] -->
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+        <exclude name="Generic.Functions.CallTimePassByReference"/>
+    </rule>
+
+    <!-- WordPress Core rules -->
+    <rule ref="WordPress-Core"/>
+    <rule ref="WordPress-Docs"/>
+    <rule ref="WordPress-Extra"/>
+
+    <!-- Set minimum PHP version -->
+    <config name="minimum_supported_wp_version" value="6.3"/>
+    <config name="testVersion" value="7.4-"/>
+
+    <!-- Allow theme-specific functions -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="blockloom"/>
+            </property>
+        </properties>
+    </rule>
+</ruleset>

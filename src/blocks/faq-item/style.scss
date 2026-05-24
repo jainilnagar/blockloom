@@ -1,0 +1,10 @@
+/* FAQ Item styles are defined in the parent FAQs block stylesheet */
+
+.blockloom-faq-item.is-editor {
+
+	.blockloom-faq-item__answer {
+		display: block !important;
+		max-height: none !important;
+		padding: 0 1.25rem;
+	}
+}

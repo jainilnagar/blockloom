@@ -1,0 +1,52 @@
+.blockloom-icon-list-item {
+	display: flex;
+	align-items: center;
+	gap: var(--bl-list-icon-gap, 10px);
+	list-style: none !important;
+	color: var(--bl-list-text-color, inherit);
+
+	&__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		color: var(--bl-list-icon-color, currentColor);
+
+		svg {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__text {
+		flex: 1;
+		min-width: 0;
+
+		a {
+			color: var(--bl-list-text-color, inherit);
+			text-decoration: none !important;
+		}
+	}
+
+	&:hover {
+
+		.blockloom-icon-list-item__icon {
+			color: var(--bl-list-icon-hover-color, currentColor);
+		}
+
+		.blockloom-icon-list-item__text {
+			color: var(--bl-list-text-hover-color, currentColor);
+
+			a {
+				color: var(--bl-list-text-hover-color, currentColor);
+			}
+		}
+	}
+
+	// Icon after text: reverse flex direction
+	.blockloom-icon-list[style*="--bl-list-icon-position: after"] &,
+	.blockloom-icon-list.icon-after & {
+		flex-direction: row-reverse;
+	}
+}

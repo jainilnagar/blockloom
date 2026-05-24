@@ -1,0 +1,25 @@
+{
+  "name": "blockloom",
+  "version": "1.0.0",
+  "description": "Blockloom - Custom Gutenberg Blocks Plugin",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "lint:js": "wp-scripts lint-js",
+    "lint:style": "wp-scripts lint-style",
+    "generate-icons": "node scripts/generate-icons.js",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "dependencies": {
+    "@wordpress/block-editor": "*",
+    "@wordpress/blocks": "*",
+    "@wordpress/components": "*",
+    "@wordpress/element": "*",
+    "@wordpress/i18n": "*",
+    "@wordpress/icons": "*"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0",
+    "@wordpress/scripts": "^27.0.0"
+  }
+}

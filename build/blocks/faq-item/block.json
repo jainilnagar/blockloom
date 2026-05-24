@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "blockloom/faq-item",
+  "version": "1.0.0",
+  "title": "FAQ Item",
+  "category": "blockloom",
+  "icon": "editor-help",
+  "description": "A single FAQ item used inside the FAQs block.",
+  "textdomain": "blockloom",
+  "parent": [
+    "blockloom/faqs"
+  ],
+  "attributes": {
+    "question": {
+      "type": "string",
+      "default": ""
+    },
+    "answer": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "usesContext": [
+    "blockloom/iconStyle"
+  ],
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "typography": {
+      "fontSize": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

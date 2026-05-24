@@ -1,0 +1,34 @@
+.blockloom-icon-list {
+	list-style: none !important;
+	padding-left: 0 !important;
+	margin-left: 0 !important;
+
+	&.has-divider .blockloom-icon-list-item {
+		padding-bottom: 12px;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+		border-bottom-color: var(--bl-list-divider-color, #e0e0e0);
+
+		&:hover {
+			border-color: var(--bl-list-divider-hover-color, #e0e0e0);
+		}
+	}
+
+	&.has-divider.layout-vertical .blockloom-icon-list-item {
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	&.layout-horizontal {
+
+		@media (max-width: 768px) {
+			grid-template-columns: repeat(2, 1fr) !important;
+		}
+
+		@media (max-width: 480px) {
+			grid-template-columns: repeat(1, 1fr) !important;
+		}
+	}
+}

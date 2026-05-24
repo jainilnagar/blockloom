@@ -1,0 +1,116 @@
+.blockloom-faqs {
+	--bl-faq-border-color: #e0e0e0;
+	--bl-faq-border-radius: 0;
+	--bl-faq-icon-color: currentcolor;
+	border: none;
+
+	.blockloom-faq-item {
+		background-color: var(--bl-faq-bg, transparent);
+		border-top: 1px solid var(--bl-faq-border-color);
+		border-radius: var(--bl-faq-border-radius);
+		overflow: hidden;
+
+		&:last-child {
+			border-bottom: 1px solid var(--bl-faq-border-color);
+		}
+
+		&__trigger {
+			all: unset;
+			box-sizing: border-box;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			padding: 1rem 1.25rem;
+			cursor: pointer;
+			font-weight: 600;
+			color: var(--bl-faq-question-color, inherit);
+
+			&:focus-visible {
+				outline: 2px solid currentcolor;
+				outline-offset: -2px;
+			}
+		}
+
+		&__question {
+			flex: 1;
+		}
+
+		&__icon {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+			width: 20px;
+			height: 20px;
+			color: var(--bl-faq-icon-color);
+			transition: transform 0.25s ease;
+		}
+
+		// Answer — CSS grid trick for smooth height animation
+		&__answer {
+			display: grid;
+			grid-template-rows: 0fr;
+			transition: grid-template-rows 0.3s ease;
+		}
+
+		&__answer-inner {
+			overflow: hidden;
+			padding: 0 1.25rem;
+			color: var(--bl-faq-answer-color, inherit);
+		}
+
+		&__answer-content {
+			padding-bottom: 1rem;
+		}
+
+		// Open state
+		&[aria-expanded="true"] {
+			background-color: var(--bl-faq-active-bg, var(--bl-faq-bg, transparent));
+
+			.blockloom-faq-item__answer {
+				grid-template-rows: 1fr;
+			}
+
+			.blockloom-faq-item__icon {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	// Plus icon rotates 45deg (becomes X) when open
+	&[data-icon-style="plus"] {
+
+		.blockloom-faq-item {
+
+			&[aria-expanded="true"] {
+
+				.blockloom-faq-item__icon {
+					transform: rotate(45deg);
+				}
+			}
+
+		}
+	}
+
+	// Arrow icon doesn't rotate
+	&[data-icon-style="arrow"] {
+
+		.blockloom-faq-item {
+
+			&[aria-expanded="true"] {
+
+				.blockloom-faq-item__icon {
+					transform: none;
+				}
+			}
+
+		}
+	}
+
+	// Icon before position
+	&.icon-before .blockloom-faq-item__trigger {
+		flex-direction: row-reverse;
+		justify-content: flex-end;
+	}
+}

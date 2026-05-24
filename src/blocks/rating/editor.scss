@@ -1,0 +1,6 @@
+.blockloom-rating {
+	// Bar shows final width immediately in editor — no animation
+	&__bar-fill {
+		transition: none !important;
+	}
+}

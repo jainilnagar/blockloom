@@ -1,0 +1,192 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "blockloom/team-member",
+  "version": "1.0.0",
+  "title": "Team Member",
+  "category": "blockloom",
+  "icon": "admin-users",
+  "description": "A profile card with photo, name, designation, bio, and social links.",
+  "textdomain": "blockloom",
+  "example": {
+    "attributes": {
+      "name": "Jane Smith",
+      "designation": "Lead Designer",
+      "bio": "Passionate about creating beautiful user experiences.",
+      "imagePosition": "top",
+      "imageShape": "circle",
+      "textAlignment": "center"
+    }
+  },
+  "attributes": {
+    "mediaId": {
+      "type": "number",
+      "default": 0
+    },
+    "mediaUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "mediaAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "imagePosition": {
+      "type": "string",
+      "default": "top"
+    },
+    "imageShape": {
+      "type": "string",
+      "default": "square"
+    },
+    "imageSize": {
+      "type": "number",
+      "default": 120
+    },
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "nameColor": {
+      "type": "string",
+      "default": ""
+    },
+    "designation": {
+      "type": "string",
+      "default": ""
+    },
+    "designationColor": {
+      "type": "string",
+      "default": ""
+    },
+    "designationLink": {
+      "type": "string",
+      "default": ""
+    },
+    "bio": {
+      "type": "string",
+      "default": ""
+    },
+    "bioColor": {
+      "type": "string",
+      "default": ""
+    },
+    "showBio": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDesignation": {
+      "type": "boolean",
+      "default": true
+    },
+    "showSocial": {
+      "type": "boolean",
+      "default": true
+    },
+    "socialLinkedIn": {
+      "type": "string",
+      "default": ""
+    },
+    "socialTwitter": {
+      "type": "string",
+      "default": ""
+    },
+    "socialGitHub": {
+      "type": "string",
+      "default": ""
+    },
+    "socialFacebook": {
+      "type": "string",
+      "default": ""
+    },
+    "socialInstagram": {
+      "type": "string",
+      "default": ""
+    },
+    "socialYouTube": {
+      "type": "string",
+      "default": ""
+    },
+    "socialCustom": {
+      "type": "string",
+      "default": ""
+    },
+    "socialCustomLabel": {
+      "type": "string",
+      "default": "Website"
+    },
+    "socialIconOnly": {
+      "type": "boolean",
+      "default": true
+    },
+    "socialIconShape": {
+      "type": "string",
+      "default": "default"
+    },
+    "socialIconColor": {
+      "type": "string",
+      "default": ""
+    },
+    "socialHoverColor": {
+      "type": "string",
+      "default": ""
+    },
+    "socialGap": {
+      "type": "number",
+      "default": 12
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "borderWidth": {
+      "type": "number",
+      "default": 0
+    },
+    "borderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "borderRadius": {
+      "type": "number",
+      "default": 0
+    },
+    "boxShadow": {
+      "type": "boolean",
+      "default": false
+    },
+    "textAlignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "paddingTop": {
+      "type": "number",
+      "default": 24
+    },
+    "paddingRight": {
+      "type": "number",
+      "default": 24
+    },
+    "paddingBottom": {
+      "type": "number",
+      "default": 24
+    },
+    "paddingLeft": {
+      "type": "number",
+      "default": 24
+    },
+    "enablePersonSchema": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

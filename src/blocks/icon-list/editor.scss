@@ -1,0 +1,55 @@
+.blockloom-icon-list {
+
+	.blockloom-label {
+		font-size: 11px;
+		font-weight: 500;
+		text-transform: uppercase;
+		color: #757575;
+		margin-bottom: 8px;
+	}
+
+	&.layout-horizontal {
+		display: block !important;
+
+		.block-editor-inner-blocks {
+			display: block;
+			width: 100%;
+		}
+
+		.block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: grid !important;
+			grid-template-columns: var(--bl-list-grid-cols) !important;
+			column-gap: 15px;
+			row-gap: var(--bl-list-gap) !important;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+
+			@media (max-width: 768px) {
+				grid-template-columns: repeat(2, 1fr) !important;
+			}
+
+			@media (max-width: 480px) {
+				grid-template-columns: repeat(1, 1fr) !important;
+			}
+		}
+	}
+
+	&.layout-vertical {
+		display: block !important;
+
+		.block-editor-inner-blocks {
+			display: block;
+			width: 100%;
+		}
+
+		.block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: flex !important;
+			flex-direction: column !important;
+			gap: var(--bl-list-gap) !important;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+	}
+}

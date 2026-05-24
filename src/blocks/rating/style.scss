@@ -1,0 +1,69 @@
+.blockloom-rating {
+	--bl-rating-filled: #f59e0b;
+	--bl-rating-empty: #e5e7eb;
+
+	&.align-left {
+		text-align: left;
+	}
+
+	&.align-center {
+		text-align: center;
+	}
+
+	&.align-right {
+		text-align: right;
+	}
+
+	&__title {
+		margin: 0 0 0.5em;
+		font-weight: 600;
+		line-height: 1.3;
+	}
+
+	// Row wraps to next line when container is too narrow
+	&__row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5em;
+		line-height: 1;
+		justify-content: var(--bl-rating-align);
+	}
+
+	// Stars
+	&__stars {
+		display: inline-flex;
+		align-items: center;
+		gap: 2px;
+		line-height: 1;
+
+		svg {
+			display: block;
+			flex-shrink: 0;
+		}
+	}
+
+	// Bar
+	&__bar-wrap {
+		flex: 1;
+		background-color: var(--bl-rating-empty, #e5e7eb);
+		overflow: hidden;
+		// min-width so it doesn't collapse before numeric wraps
+		min-width: 120px;
+	}
+
+	&__bar-fill {
+		display: block;
+		height: 100%;
+		background-color: var(--bl-rating-filled, #f59e0b);
+	}
+
+	// Numeric value
+	&__numeric {
+		flex-shrink: 0;
+		color: var(--bl-rating-numeric, inherit);
+		font-weight: 600;
+		line-height: 1;
+		white-space: nowrap; // prevent mid-number wrapping
+	}
+}

@@ -1,0 +1,6 @@
+.blockloom-progress-bar {
+	// Show final fill width immediately in editor — no animation
+	&__fill {
+		transition: none !important;
+	}
+}

@@ -1,0 +1,120 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "blockloom/icon-list",
+  "version": "1.0.0",
+  "title": "Icon List",
+  "category": "blockloom",
+  "icon": "list-view",
+  "description": "A list of items each with an icon and text.",
+  "textdomain": "blockloom",
+  "example": {
+    "attributes": {
+      "layout": "vertical",
+      "listIconName": "solid/check",
+      "iconColor": "#0ea5e9"
+    },
+    "innerBlocks": [
+      {
+        "name": "blockloom/icon-list-item",
+        "attributes": {
+          "text": "Feature one"
+        }
+      },
+      {
+        "name": "blockloom/icon-list-item",
+        "attributes": {
+          "text": "Feature two"
+        }
+      }
+    ]
+  },
+  "attributes": {
+    "layout": {
+      "type": "string",
+      "default": "vertical",
+      "enum": [
+        "vertical",
+        "horizontal"
+      ]
+    },
+    "columns": {
+      "type": "number",
+      "default": 1
+    },
+    "gap": {
+      "type": "number",
+      "default": 12
+    },
+    "listIconName": {
+      "type": "string",
+      "default": "solid/check"
+    },
+    "iconSize": {
+      "type": "number",
+      "default": 20
+    },
+    "iconColor": {
+      "type": "string",
+      "default": ""
+    },
+    "iconHoverColor": {
+      "type": "string",
+      "default": ""
+    },
+    "textColor": {
+      "type": "string",
+      "default": ""
+    },
+    "textHoverColor": {
+      "type": "string",
+      "default": ""
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "before",
+      "enum": [
+        "before",
+        "after"
+      ]
+    },
+    "iconSpacing": {
+      "type": "number",
+      "default": 10
+    },
+    "showDivider": {
+      "type": "boolean",
+      "default": false
+    },
+    "dividerColor": {
+      "type": "string",
+      "default": ""
+    },
+    "dividerHoverColor": {
+      "type": "string",
+      "default": ""
+    },
+    "alignment": {
+      "type": "string",
+      "default": "left"
+    },
+    "lineHeight": {
+      "type": "number",
+      "default": 1.5
+    }
+  },
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "providesContext": {
+    "blockloom/listIconName": "listIconName",
+    "blockloom/iconSize": "iconSize"
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
