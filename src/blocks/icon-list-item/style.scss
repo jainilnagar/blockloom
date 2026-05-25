@@ -1,7 +1,7 @@
 .blockloom-icon-list-item {
 	display: flex;
 	align-items: center;
-	gap: var(--bl-list-icon-gap, 10px);
+	gap: var(--bl-list-icon-spacing, 10px);
 	list-style: none !important;
 	color: var(--bl-list-text-color, inherit);
 

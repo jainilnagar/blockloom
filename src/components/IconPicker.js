@@ -5,7 +5,7 @@
 import { __, sprintf } from '@wordpress/i18n';
 import { useState, useMemo } from '@wordpress/element';
 import { TextControl, Button, SelectControl } from '@wordpress/components';
-import ICONS from '../data/icons.json';
+import ICONS from '../../data/icons.json';
 
 const STYLE_OPTIONS = [
 	{ label: __( 'All', 'blockloom' ), value: 'all' },

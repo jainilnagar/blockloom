@@ -3,7 +3,7 @@
  * Used in save.js to output inline SVG in the saved HTML.
  * Import is tree-shaken — only used icons' paths end up in the output.
  */
-import ICONS from '../data/icons.json';
+import ICONS from '../../data/icons.json';
 
 export default function getIconSVG( iconKey, extraProps = {} ) {
 	const icon = ICONS[ iconKey ];

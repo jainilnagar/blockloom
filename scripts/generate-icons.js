@@ -52,10 +52,10 @@ Object.entries( meta ).forEach( ( [ name, data ] ) => {
 	} );
 } );
 
-fs.mkdirSync( path.resolve( __dirname, '../src/data' ), { recursive: true } );
+fs.mkdirSync( path.resolve( __dirname, '../data' ), { recursive: true } );
 
 fs.writeFileSync(
-	path.resolve( __dirname, '../src/data/icons.json' ),
+	path.resolve( __dirname, '../data/icons.json' ),
 	JSON.stringify( output )
 );
 

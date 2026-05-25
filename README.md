@@ -112,7 +112,7 @@ composer phpstan
 
 Blockloom uses **Font Awesome Free** icons rendered as inline SVG — no icon fonts, no CDN, no API key required.
 
-The `src/data/icons.json` file is generated from the FA Free metadata at build time:
+The `data/icons.json` file is generated from the FA Free metadata at build time:
 
 ```bash
 npm run generate-icons
@@ -300,15 +300,15 @@ blockloom/
 ├── docs/
 │   └── screenshots/                 # Block screenshots for README
 ├── scripts/
-│   ├── generate-icons.js            # Generates src/data/icons.json from FA Free
+│   ├── generate-icons.js            # Generates data/icons.json from FA Free
 │   └── lint-php.php                 # Cross-platform PHP syntax checker
 ├── includes/
 │   ├── block-category.php           # Registers "Blockloom" inserter category
 │   └── icon-helper.php              # PHP SVG renderer with static caching
+├── data/
+│   ├──  icons.json                  # Generated FA Free icon data (gitignored)
 └── src/
     ├── frontend.js                  # FAQ accordion, animations, JSON-LD schemas
-    ├── data/
-    │   └── icons.json               # Generated FA Free icon data (gitignored)
     ├── components/
     │   ├── IconPicker.js            # Searchable FA icon picker (editor only)
     │   ├── getIconSVG.js            # Inline SVG renderer for save.js files

@@ -26,7 +26,7 @@ function blockloom_get_icon_svg( $icon_key, $size = 24, $class_att = '' ) {
 
 	// Load and cache the icons JSON once per request.
 	if ( null === $icons ) {
-		$json_path = BLOCKLOOM_PLUGIN_DIR . 'src/data/icons.json';
+		$json_path = BLOCKLOOM_PLUGIN_DIR . 'data/icons.json';
 		if ( ! file_exists( $json_path ) ) {
 			return '';
 		}
