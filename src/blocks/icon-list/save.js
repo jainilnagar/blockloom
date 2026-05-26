@@ -44,6 +44,8 @@ export default function save( { attributes } ) {
 		rowGap: `${ gap }px`,
 		textAlign: alignment,
 		listStyle: 'none',
+        margin: 0,
+        padding: 0,
 	};
 
 	const blockProps = useBlockProps.save( {

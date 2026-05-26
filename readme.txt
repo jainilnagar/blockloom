@@ -1,6 +1,6 @@
-=== Blockloom – Gutenberg Blocks for Block Editor ===
+=== Blockloom ===
 Contributors: jainilnagar
-Tags: blocks, gutenberg blocks, gutenberg, block editor, free, icon, faq, accordion, team, progress bar, rating, icon list, info box
+Tags: blocks, gutenberg blocks, gutenberg, block editor
 Requires at least: 6.3
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -27,7 +27,7 @@ Display a single icon with optional link, accessibility label, background shape 
 A vertical or horizontal list of icon + text items. Supports custom icon size, icon position (before/after text), gap control, divider, responsive flex wrapping, and line height. Each list item has its own icon picker. Rendered server-side via render.php for clean, accessible HTML.
 
 **Info Box**
-An icon + title + description card with three layout modes (Icon Top, Icon Left, Icon Right), left/center/right content alignment, optional CTA button, title tag selector (H2–H5) for correct heading hierarchy, icon and card hover states, and linked/unlinked padding control.
+An icon + title + description card with three layout modes (Icon Top, Icon Left, Icon Right), left/center/right content alignment, optional CTA link, title tag selector (H2–H5) for correct heading hierarchy, icon and card hover states, and linked/unlinked padding control.
 
 **FAQs**
 An accessible accordion-style FAQ section. Supports three icon styles (Chevron, Plus, Arrow), icon position (before/after the question), allow-multiple-open mode, default open state (all closed or first open), and optional FAQPage JSON-LD schema for SEO. Uses a smooth CSS grid animation for open/close — no max-height hacks.
@@ -39,7 +39,7 @@ A profile card with photo, name, designation, bio, and social links. Supports se
 Display a star or bar rating with optional numeric value and AggregateRating JSON-LD schema. Stars support full and half-star values. Bar style supports scroll animation, height and border radius control. Numeric value wraps naturally below the rating on narrow containers.
 
 **Progress Bar**
-A progress bar with title (left) and value (right) displayed inline, and the bar at full width below or above. Supports striped fill with optional moving stripe animation, scroll animation, height (4–40px), border radius, and a custom label that overrides the auto percentage.
+A progress bar with title and percentage value, and the bar at full width below or above. Supports striped fill with optional moving stripe animation, scroll animation, height (4–40px), border radius, and a custom label that overrides the auto percentage.
 
 = Key Features =
 
@@ -59,32 +59,18 @@ A progress bar with title (left) and value (right) displayed inline, and the bar
 * Linked/unlinked padding control on Info Box and Team Member
 * Full site editing (FSE) compatible
 
-= Blocks Reference =
-
-| Block            | Inserter   | Render     | Description                                      |
-| ---              | ---        | ---        | ---                                              |
-| Icon             | ✅ Public  | JS (save)  | Single icon with link, label, hover              |
-| Icon List        | ✅ Public  | JS (save)  | Icon + text list, vertical or horizontal         |
-| Icon List Item   | ✅ Public  | PHP        | Individual item inside an Icon List              |
-| Info Box         | ✅ Public  | JS (save)  | Icon + title + description card                  |
-| FAQs             | ✅ Public  | JS (save)  | Accordion FAQ with schema support                |
-| FAQ Item         | ✅ Public  | JS (save)  | Individual item inside a FAQs block              |
-| Team Member      | ✅ Public  | JS (save)  | Profile card with social links                   |
-| Rating           | ✅ Public  | JS (save)  | Star or bar rating with schema support           |
-| Progress Bar     | ✅ Public  | JS (save)  | Animated progress bar with title and value       |
-
 == Installation ==
 
 = From the WordPress Plugin Directory =
 
-1. Go to **Plugins → Add New** in your WordPress admin
+1. Go to **Plugins -> Add New** in your WordPress admin
 2. Search for **Blockloom**
 3. Click **Install Now** then **Activate**
 
 = Manual Installation =
 
 1. Download the plugin ZIP file
-2. Go to **Plugins → Add New → Upload Plugin**
+2. Go to **Plugins -> Add New -> Upload Plugin**
 3. Upload the ZIP and click **Install Now**
 4. Click **Activate Plugin**
 
@@ -153,18 +139,3 @@ No. The stripe animation is a pure CSS background-position animation — no Java
 
 = 1.0.0 =
 * Initial release
-* Icon block — Font Awesome Free inline SVG, hover animations, accessibility label, link rel control
-* Icon List block — vertical/horizontal layout, responsive flex wrapping, icon position, per-item icon picker
-* Icon List Item block — server-side rendered via render.php, inherits parent styles
-* Info Box block — three layout modes, content alignment, title tag selector, card hover states, linked padding control
-* FAQs block — CSS grid animation, context-driven icon in editor, icon position, FAQPage JSON-LD schema
-* Team Member block — seven social networks with FA Brand icons, Person JSON-LD schema, image lazy loading
-* Rating block — stars (full/half) and bar styles, AggregateRating JSON-LD schema, scroll animation
-* Progress Bar block — striped fill with CSS animation, scroll animation, custom label, above/below label position
-* Shared ColorControl component with theme palette and Normal/Hover tabs
-* Shared PaddingControl component with linked/unlinked sides
-* IconPicker component — searchable Font Awesome Free grid with category filter and load more pagination
-* PHP icon helper — server-side SVG rendering with static caching
-* Conditional asset loading via has_block() checks
-* WPCS compliant PHP code
-* PHPStan static analysis at level 5
