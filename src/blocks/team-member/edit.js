@@ -102,7 +102,6 @@ export default function Edit( { attributes, setAttributes } ) {
 		} ${
 			socialIconShape !== 'default' ? ' icons-styled' : ''
 		} icon-${ socialIconShape }`,
-		style: cardStyle,
 	} );
 
 	const ALIGNMENT_LABELS = {
@@ -424,151 +423,163 @@ export default function Edit( { attributes, setAttributes } ) {
 			</InspectorControls>
 
 			<div { ...blockProps }>
-				<MediaUploadCheck>
-					<MediaUpload
-						onSelect={ ( media ) =>
-							setAttributes( {
-								mediaId: media.id,
-								mediaUrl: media.url,
-								mediaAlt: media.alt,
-							} )
-						}
-						allowedTypes={ [ 'image' ] }
-						value={ mediaId }
-						render={ ( { open } ) => (
-							<button
-								type="button"
-								className="blockloom-team-member__image-wrap"
-								onClick={ open }
-								style={ {
-									cursor: 'pointer',
-									border: 'none',
-									padding: 0,
-									background: 'transparent',
-								} }
-							>
-								{ mediaUrl ? (
-									<img
-										src={ mediaUrl }
-										alt={ mediaAlt }
-										style={ imgStyle }
-									/>
-								) : (
-									<div
-										style={ {
-											...imgStyle,
-											background: '#f0f0f0',
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'center',
-											color: '#999',
-											fontSize: 13,
-											margin:
-												textAlignment === 'center'
-													? '0 auto 1rem'
-													: '0 0 1rem',
-										} }
-									>
-										{ __( '+ Photo', 'blockloom' ) }
-									</div>
+				<div
+					className="blockloom-team-member__wrap"
+					style={ cardStyle }
+				>
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={ ( media ) =>
+								setAttributes( {
+									mediaId: media.id,
+									mediaUrl: media.url,
+									mediaAlt: media.alt,
+								} )
+							}
+							allowedTypes={ [ 'image' ] }
+							value={ mediaId }
+							render={ ( { open } ) => (
+								<button
+									type="button"
+									className="blockloom-team-member__image-wrap"
+									onClick={ open }
+									style={ {
+										cursor: 'pointer',
+										border: 'none',
+										padding: 0,
+										background: 'transparent',
+									} }
+								>
+									{ mediaUrl ? (
+										<img
+											src={ mediaUrl }
+											alt={ mediaAlt }
+											style={ imgStyle }
+										/>
+									) : (
+										<div
+											style={ {
+												...imgStyle,
+												background: '#f0f0f0',
+												display: 'flex',
+												alignItems: 'center',
+												justifyContent: 'center',
+												color: '#999',
+												fontSize: 13,
+												margin:
+													textAlignment === 'center'
+														? '0 auto 1rem'
+														: '0 0 1rem',
+											} }
+										>
+											{ __( '+ Photo', 'blockloom' ) }
+										</div>
+									) }
+								</button>
+							) }
+						/>
+					</MediaUploadCheck>
+
+					<div className="blockloom-team-member__info">
+						<RichText
+							tagName="h3"
+							className="blockloom-team-member__name"
+							value={ name }
+							onChange={ ( val ) =>
+								setAttributes( { name: val } )
+							}
+							placeholder={ __( 'Full Name', 'blockloom' ) }
+							allowedFormats={ [] }
+							style={ { color: nameColor || undefined } }
+						/>
+
+						{ showDesignation && (
+							<RichText
+								tagName="p"
+								className="blockloom-team-member__designation"
+								value={ designation }
+								onChange={ ( val ) =>
+									setAttributes( { designation: val } )
+								}
+								placeholder={ __(
+									'Job Title / Role',
+									'blockloom'
 								) }
-							</button>
+								allowedFormats={ [
+									'core/bold',
+									'core/italic',
+								] }
+								style={ {
+									color: designationColor || undefined,
+								} }
+							/>
 						) }
-					/>
-				</MediaUploadCheck>
 
-				<div className="blockloom-team-member__info">
-					<RichText
-						tagName="h3"
-						className="blockloom-team-member__name"
-						value={ name }
-						onChange={ ( val ) => setAttributes( { name: val } ) }
-						placeholder={ __( 'Full Name', 'blockloom' ) }
-						allowedFormats={ [] }
-						style={ { color: nameColor || undefined } }
-					/>
+						{ showBio && (
+							<RichText
+								tagName="p"
+								className="blockloom-team-member__bio"
+								value={ bio }
+								onChange={ ( val ) =>
+									setAttributes( { bio: val } )
+								}
+								placeholder={ __( 'Short bio…', 'blockloom' ) }
+								allowedFormats={ [
+									'core/bold',
+									'core/italic',
+									'core/link',
+								] }
+								style={ { color: bioColor || undefined } }
+							/>
+						) }
 
-					{ showDesignation && (
-						<RichText
-							tagName="p"
-							className="blockloom-team-member__designation"
-							value={ designation }
-							onChange={ ( val ) =>
-								setAttributes( { designation: val } )
-							}
-							placeholder={ __(
-								'Job Title / Role',
-								'blockloom'
-							) }
-							allowedFormats={ [ 'core/bold', 'core/italic' ] }
-							style={ { color: designationColor || undefined } }
-						/>
-					) }
-
-					{ showBio && (
-						<RichText
-							tagName="p"
-							className="blockloom-team-member__bio"
-							value={ bio }
-							onChange={ ( val ) =>
-								setAttributes( { bio: val } )
-							}
-							placeholder={ __( 'Short bio…', 'blockloom' ) }
-							allowedFormats={ [
-								'core/bold',
-								'core/italic',
-								'core/link',
-							] }
-							style={ { color: bioColor || undefined } }
-						/>
-					) }
-
-					{ showSocial && (
-						<div
-							className="blockloom-team-member__social"
-							style={ { gap: `${ socialGap }px` } }
-						>
-							{ SOCIALS.filter(
-								( { key } ) => attributes[ key ]
-							).map( ( { key, label, iconKey } ) => (
-								<a
-									key={ key }
-									href={ attributes[ key ] }
-									className="blockloom-team-member__social-link"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									<span className="blockloom-team-member__social-icon">
-										{ renderIconSVG( iconKey, {
-											width: 18,
-											height: 18,
-										} ) }
-									</span>
-									{ ! socialIconOnly && (
-										<span>{ label }</span>
-									) }
-								</a>
-							) ) }
-							{ socialCustom && (
-								<a
-									href={ socialCustom }
-									className="blockloom-team-member__social-link"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									<span className="blockloom-team-member__social-icon">
-										{ renderIconSVG( 'solid/globe', {
-											width: 18,
-											height: 18,
-										} ) }
-									</span>
-									{ ! socialIconOnly && (
-										<span>{ socialCustomLabel }</span>
-									) }
-								</a>
-							) }
-						</div>
-					) }
+						{ showSocial && (
+							<div
+								className="blockloom-team-member__social"
+								style={ { gap: `${ socialGap }px` } }
+							>
+								{ SOCIALS.filter(
+									( { key } ) => attributes[ key ]
+								).map( ( { key, label, iconKey } ) => (
+									<a
+										key={ key }
+										href={ attributes[ key ] }
+										className="blockloom-team-member__social-link"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<span className="blockloom-team-member__social-icon">
+											{ renderIconSVG( iconKey, {
+												width: 18,
+												height: 18,
+											} ) }
+										</span>
+										{ ! socialIconOnly && (
+											<span>{ label }</span>
+										) }
+									</a>
+								) ) }
+								{ socialCustom && (
+									<a
+										href={ socialCustom }
+										className="blockloom-team-member__social-link"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<span className="blockloom-team-member__social-icon">
+											{ renderIconSVG( 'solid/globe', {
+												width: 18,
+												height: 18,
+											} ) }
+										</span>
+										{ ! socialIconOnly && (
+											<span>{ socialCustomLabel }</span>
+										) }
+									</a>
+								) }
+							</div>
+						) }
+					</div>
 				</div>
 			</div>
 		</>

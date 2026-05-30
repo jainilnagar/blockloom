@@ -76,54 +76,57 @@ export default function save( { attributes } ) {
 
 	const blockProps = useBlockProps.save( {
 		className: `blockloom-info-box layout-${ layout } align-${ contentAlign }`,
-		style: boxStyle,
 	} );
 
 	return (
 		<div { ...blockProps }>
-			{ iconName && (
-				<span
-					className="blockloom-info-box__icon"
-					style={ iconWrapStyle }
-				>
+			<div className="blockloom-info-box__wrap" style={ boxStyle }>
+				{ iconName && (
 					<span
-						style={ {
-							width: iconSize,
-							height: iconSize,
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
-						} }
+						className="blockloom-info-box__icon"
+						style={ iconWrapStyle }
 					>
-						{ getIconSVG( iconName, { size: iconSize } ) }
+						<span
+							style={ {
+								width: iconSize,
+								height: iconSize,
+								display: 'flex',
+								alignItems: 'center',
+								justifyContent: 'center',
+							} }
+						>
+							{ getIconSVG( iconName, { size: iconSize } ) }
+						</span>
 					</span>
-				</span>
-			) }
-			<div className="blockloom-info-box__content">
-				{ title && (
-					<RichText.Content
-						tagName={ titleTag }
-						className="blockloom-info-box__title"
-						value={ title }
-					/>
 				) }
-				{ description && (
-					<RichText.Content
-						tagName="p"
-						className="blockloom-info-box__description"
-						value={ description }
-					/>
-				) }
-				{ ctaText && (
-					<a
-						className="blockloom-info-box__cta"
-						href={ ctaUrl }
-						target={ ctaNewTab ? '_blank' : undefined }
-						rel={ ctaNewTab ? 'noopener noreferrer' : undefined }
-					>
-						{ ctaText }
-					</a>
-				) }
+				<div className="blockloom-info-box__content">
+					{ title && (
+						<RichText.Content
+							tagName={ titleTag }
+							className="blockloom-info-box__title"
+							value={ title }
+						/>
+					) }
+					{ description && (
+						<RichText.Content
+							tagName="p"
+							className="blockloom-info-box__description"
+							value={ description }
+						/>
+					) }
+					{ ctaText && (
+						<a
+							className="blockloom-info-box__cta"
+							href={ ctaUrl }
+							target={ ctaNewTab ? '_blank' : undefined }
+							rel={
+								ctaNewTab ? 'noopener noreferrer' : undefined
+							}
+						>
+							{ ctaText }
+						</a>
+					) }
+				</div>
 			</div>
 		</div>
 	);

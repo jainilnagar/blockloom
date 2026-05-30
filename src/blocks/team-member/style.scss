@@ -2,8 +2,11 @@
 	--bl-tm-social-color: currentcolor;
 	--bl-tm-social-hover-color: currentcolor;
 	--bl-tm-social-gap: 12px;
-	display: flex;
-	gap: 25px;
+
+	&__wrap {
+		display: flex;
+		gap: 25px;
+	}
 
 	&__image-wrap {
 		line-height: 0;
@@ -96,14 +99,17 @@
 		font-size: 0.85em;
 	}
 
-    &.image-left {
+	&.image-left {
 
-        @media (max-width: 600px) {
-            flex-direction: column !important;
+		@media (max-width: 600px) {
 
-            &.text-left {
-                align-items: flex-start !important;
-            }
-        }
-    }
+			.blockloom-team-member__wrap {
+				flex-direction: column !important;
+			}
+
+			&.text-left .blockloom-team-member__wrap {
+				align-items: flex-start !important;
+			}
+		}
+	}
 }

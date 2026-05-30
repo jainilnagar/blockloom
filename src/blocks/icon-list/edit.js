@@ -71,11 +71,12 @@ export default function Edit( { attributes, setAttributes } ) {
 		padding: 0,
 	};
 
+	const listClassName = `blockloom-icon-list layout-${ layout }${
+		showDivider ? ' has-divider' : ''
+	} align-${ alignment }`;
+
 	const blockProps = useBlockProps( {
-		className: `blockloom-icon-list layout-${ layout }${
-			showDivider ? ' has-divider' : ''
-		} align-${ alignment }`,
-		style: listStyle,
+		className: `blockloom-icon-list__wrap`,
 	} );
 
 	const ALIGNMENT_LABELS = {
@@ -255,12 +256,14 @@ export default function Edit( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<ul { ...blockProps }>
-				<InnerBlocks
-					template={ TEMPLATE }
-					allowedBlocks={ [ 'blockloom/icon-list-item' ] }
-				/>
-			</ul>
+			<div { ...blockProps }>
+				<ul className={ listClassName } style={ listStyle }>
+					<InnerBlocks
+						template={ TEMPLATE }
+						allowedBlocks={ [ 'blockloom/icon-list-item' ] }
+					/>
+				</ul>
+			</div>
 		</>
 	);
 }

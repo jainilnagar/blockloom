@@ -44,20 +44,23 @@ export default function save( { attributes } ) {
 		rowGap: `${ gap }px`,
 		textAlign: alignment,
 		listStyle: 'none',
-        margin: 0,
-        padding: 0,
+		margin: 0,
+		padding: 0,
 	};
 
+	const listClassName = `blockloom-icon-list layout-${ layout }${
+		showDivider ? ' has-divider' : ''
+	} align-${ alignment }`;
+
 	const blockProps = useBlockProps.save( {
-		className: `blockloom-icon-list layout-${ layout }${
-			showDivider ? ' has-divider' : ''
-		} align-${ alignment }`,
-		style: listStyle,
+		className: `blockloom-icon-list__wrap`,
 	} );
 
 	return (
-		<ul { ...blockProps }>
-			<InnerBlocks.Content />
-		</ul>
+		<div { ...blockProps }>
+			<ul className={ listClassName } style={ listStyle }>
+				<InnerBlocks.Content />
+			</ul>
+		</div>
 	);
 }

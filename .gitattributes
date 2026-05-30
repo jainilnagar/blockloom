@@ -18,6 +18,7 @@
 *.xml.dist   text eol=lf
 *.neon       text eol=lf
 *.html       text eol=lf
+*.pot        text eol=lf
 *.gitignore  text eol=lf
 *.gitattributes text eol=lf
 

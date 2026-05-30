@@ -98,99 +98,100 @@ export default function save( { attributes } ) {
 		'data-person-schema': attributes.enablePersonSchema
 			? 'true'
 			: undefined,
-		style: cardStyle,
 	} );
 
 	return (
 		<div { ...blockProps }>
-			{ mediaUrl && (
-				<div className="blockloom-team-member__image-wrap">
-					<img
-						src={ mediaUrl }
-						alt={ mediaAlt }
-						style={ imgStyle }
-						loading="lazy"
-						decoding="async"
-						width={ imageSize }
-						height={ imageSize }
-					/>
-				</div>
-			) }
-
-			<div className="blockloom-team-member__info">
-				<RichText.Content
-					tagName="h3"
-					className="blockloom-team-member__name"
-					value={ name }
-					style={ { color: nameColor || undefined } }
-				/>
-
-				{ showDesignation && designation && (
-					<RichText.Content
-						tagName="p"
-						className="blockloom-team-member__designation"
-						value={ designation }
-						style={ { color: designationColor || undefined } }
-					/>
-				) }
-
-				{ showBio && bio && (
-					<RichText.Content
-						tagName="p"
-						className="blockloom-team-member__bio"
-						value={ bio }
-						style={ { color: bioColor || undefined } }
-					/>
-				) }
-
-				{ showSocial && (
-					<div
-						className="blockloom-team-member__social"
-						style={ { gap: `${ socialGap }px` } }
-					>
-						{ SOCIALS.filter(
-							( { key } ) => socialAttrValues[ key ]
-						).map( ( { key, label, iconKey } ) => (
-							<a
-								key={ key }
-								href={ socialAttrValues[ key ] }
-								className="blockloom-team-member__social-link"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label={ label }
-							>
-								<span className="blockloom-team-member__social-icon">
-									{ getIconSVG( iconKey, { size: 18 } ) }
-								</span>
-								{ ! socialIconOnly && (
-									<span className="blockloom-team-member__social-label">
-										{ label }
-									</span>
-								) }
-							</a>
-						) ) }
-						{ socialCustom && (
-							<a
-								href={ socialCustom }
-								className="blockloom-team-member__social-link"
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label={ socialCustomLabel }
-							>
-								<span className="blockloom-team-member__social-icon">
-									{ getIconSVG( 'solid/globe', {
-										size: 18,
-									} ) }
-								</span>
-								{ ! socialIconOnly && (
-									<span className="blockloom-team-member__social-label">
-										{ socialCustomLabel }
-									</span>
-								) }
-							</a>
-						) }
+			<div className="blockloom-team-member__wrap" style={ cardStyle }>
+				{ mediaUrl && (
+					<div className="blockloom-team-member__image-wrap">
+						<img
+							src={ mediaUrl }
+							alt={ mediaAlt }
+							style={ imgStyle }
+							loading="lazy"
+							decoding="async"
+							width={ imageSize }
+							height={ imageSize }
+						/>
 					</div>
 				) }
+
+				<div className="blockloom-team-member__info">
+					<RichText.Content
+						tagName="h3"
+						className="blockloom-team-member__name"
+						value={ name }
+						style={ { color: nameColor || undefined } }
+					/>
+
+					{ showDesignation && designation && (
+						<RichText.Content
+							tagName="p"
+							className="blockloom-team-member__designation"
+							value={ designation }
+							style={ { color: designationColor || undefined } }
+						/>
+					) }
+
+					{ showBio && bio && (
+						<RichText.Content
+							tagName="p"
+							className="blockloom-team-member__bio"
+							value={ bio }
+							style={ { color: bioColor || undefined } }
+						/>
+					) }
+
+					{ showSocial && (
+						<div
+							className="blockloom-team-member__social"
+							style={ { gap: `${ socialGap }px` } }
+						>
+							{ SOCIALS.filter(
+								( { key } ) => socialAttrValues[ key ]
+							).map( ( { key, label, iconKey } ) => (
+								<a
+									key={ key }
+									href={ socialAttrValues[ key ] }
+									className="blockloom-team-member__social-link"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={ label }
+								>
+									<span className="blockloom-team-member__social-icon">
+										{ getIconSVG( iconKey, { size: 18 } ) }
+									</span>
+									{ ! socialIconOnly && (
+										<span className="blockloom-team-member__social-label">
+											{ label }
+										</span>
+									) }
+								</a>
+							) ) }
+							{ socialCustom && (
+								<a
+									href={ socialCustom }
+									className="blockloom-team-member__social-link"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={ socialCustomLabel }
+								>
+									<span className="blockloom-team-member__social-icon">
+										{ getIconSVG( 'solid/globe', {
+											size: 18,
+										} ) }
+									</span>
+									{ ! socialIconOnly && (
+										<span className="blockloom-team-member__social-label">
+											{ socialCustomLabel }
+										</span>
+									) }
+								</a>
+							) }
+						</div>
+					) }
+				</div>
 			</div>
 		</div>
 	);

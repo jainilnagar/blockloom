@@ -95,7 +95,6 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const blockProps = useBlockProps( {
 		className: `blockloom-info-box layout-${ layout } align-${ contentAlign }`,
-		style: boxStyle,
 	} );
 
 	const ALIGNMENT_LABELS = {
@@ -370,60 +369,66 @@ export default function Edit( { attributes, setAttributes } ) {
 			</InspectorControls>
 
 			<div { ...blockProps }>
-				<span
-					className="blockloom-info-box__icon"
-					style={ iconWrapStyle }
-				>
+				<div className="blockloom-info-box__wrap" style={ boxStyle }>
 					<span
-						style={ {
-							width: iconSize,
-							height: iconSize,
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
-						} }
+						className="blockloom-info-box__icon"
+						style={ iconWrapStyle }
 					>
-						{ renderIconSVG( iconName, {
-							width: iconSize,
-							height: iconSize,
-						} ) }
-					</span>
-				</span>
-				<div className="blockloom-info-box__content">
-					<RichText
-						tagName={ titleTag }
-						className="blockloom-info-box__title"
-						value={ title }
-						onChange={ ( val ) => setAttributes( { title: val } ) }
-						placeholder={ __( 'Info Box Title…', 'blockloom' ) }
-						allowedFormats={ [] }
-					/>
-					<RichText
-						tagName="p"
-						className="blockloom-info-box__description"
-						value={ description }
-						onChange={ ( val ) =>
-							setAttributes( { description: val } )
-						}
-						placeholder={ __( 'Description…', 'blockloom' ) }
-						allowedFormats={ [
-							'core/bold',
-							'core/italic',
-							'core/link',
-						] }
-					/>
-					{ ctaText && (
-						<a
-							className="blockloom-info-box__cta"
-							href={ ctaUrl || '#' }
-							target={ ctaNewTab ? '_blank' : undefined }
-							rel={
-								ctaNewTab ? 'noopener noreferrer' : undefined
-							}
+						<span
+							style={ {
+								width: iconSize,
+								height: iconSize,
+								display: 'flex',
+								alignItems: 'center',
+								justifyContent: 'center',
+							} }
 						>
-							{ ctaText }
-						</a>
-					) }
+							{ renderIconSVG( iconName, {
+								width: iconSize,
+								height: iconSize,
+							} ) }
+						</span>
+					</span>
+					<div className="blockloom-info-box__content">
+						<RichText
+							tagName={ titleTag }
+							className="blockloom-info-box__title"
+							value={ title }
+							onChange={ ( val ) =>
+								setAttributes( { title: val } )
+							}
+							placeholder={ __( 'Info Box Title…', 'blockloom' ) }
+							allowedFormats={ [] }
+						/>
+						<RichText
+							tagName="p"
+							className="blockloom-info-box__description"
+							value={ description }
+							onChange={ ( val ) =>
+								setAttributes( { description: val } )
+							}
+							placeholder={ __( 'Description…', 'blockloom' ) }
+							allowedFormats={ [
+								'core/bold',
+								'core/italic',
+								'core/link',
+							] }
+						/>
+						{ ctaText && (
+							<a
+								className="blockloom-info-box__cta"
+								href={ ctaUrl || '#' }
+								target={ ctaNewTab ? '_blank' : undefined }
+								rel={
+									ctaNewTab
+										? 'noopener noreferrer'
+										: undefined
+								}
+							>
+								{ ctaText }
+							</a>
+						) }
+					</div>
 				</div>
 			</div>
 		</>

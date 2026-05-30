@@ -1,12 +1,12 @@
 <?php
 /**
  * Plugin Name: Blockloom
- * Plugin URI:  https://github.com/jainilnagar/blockloom
+ * Plugin URI: https://github.com/jainilnagar/blockloom
  * Description: A collection of lightweight, zero-dependency Gutenberg blocks — Icon, Icon List, Info Box, FAQs, Team Member, Rating, and Progress Bar.
- * Version:     1.0.0
- * Author:      Jainil Nagar
- * Author URI:  https://profiles.wordpress.org/jainilnagar
- * License:     GPL-2.0-or-later
+ * Version: 1.0.0
+ * Author: Jainil Nagar
+ * Author URI: https://profiles.wordpress.org/jainilnagar
+ * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: blockloom
  * Domain Path: /languages
@@ -106,11 +106,3 @@ function blockloom_page_has_block() {
 
 	return false;
 }
-
-/**
- * Load plugin text domain.
- */
-function blockloom_load_textdomain() {
-	load_plugin_textdomain( 'blockloom', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-}
-add_action( 'plugins_loaded', 'blockloom_load_textdomain' );

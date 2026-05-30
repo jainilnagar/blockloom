@@ -8,7 +8,9 @@
     "lint:js": "wp-scripts lint-js",
     "lint:style": "wp-scripts lint-style",
     "generate-icons": "node scripts/generate-icons.js",
-    "packages-update": "wp-scripts packages-update"
+    "packages-update": "wp-scripts packages-update",
+    "build:zip": "npm run build && node scripts/build-zip.js",
+    "make-pot": "wp i18n make-pot . languages/blockloom.pot --domain=blockloom --exclude=node_modules,vendor,build,data"
   },
   "dependencies": {
     "@wordpress/block-editor": "*",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^7.2.0",
-    "@wordpress/scripts": "^27.0.0"
+    "@wordpress/scripts": "^27.0.0",
+    "archiver": "^8.0.0"
   }
 }
