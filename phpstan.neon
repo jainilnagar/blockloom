@@ -4,8 +4,8 @@ parameters:
         - blockloom.php
         - includes/
     excludePaths:
-        - vendor/
-        - node_modules/
-        - build/
+        - vendor/ (?)
+        - node_modules/ (?)
+        - build/ (?)
     bootstrapFiles:
         - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php

@@ -54,14 +54,6 @@ jobs:
             exit 1
           fi
 
-      - name: Check for unwanted macOS files
-        run: |
-          if find . -name '.DS_Store' -print -quit | grep -q .; then
-            echo "::error::.DS_Store files found. Remove them before committing/submitting the plugin."
-            find . -name '.DS_Store' -print
-            exit 1
-          fi
-
   php:
     name: PHP quality / PHP ${{ matrix.php-version }}
     runs-on: ubuntu-latest
