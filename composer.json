@@ -1,4 +1,6 @@
 {
+  "name": "jainilnagar/blockloom",
+  "description": "A collection of lightweight, zero-dependency Gutenberg blocks — Icon, Icon List, Info Box, FAQs, Team Member, Rating, and Progress Bar.",
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",
   "require-dev": {

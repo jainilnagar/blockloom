@@ -1,0 +1,102 @@
+name: Code Quality
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  assets:
+    name: JavaScript, CSS and build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Generate Font Awesome icon data
+        run: npm run generate-icons
+
+      - name: Build production assets
+        run: npm run build
+
+      - name: Lint JavaScript
+        run: npm run lint:js
+
+      - name: Lint styles
+        run: npm run lint:style
+
+      - name: Check generated assets are committed
+        run: |
+          if ! git diff --quiet -- build data; then
+            echo "::error::Generated files are out of date. Run npm run generate-icons && npm run build and commit the changed build/data files."
+            git diff --stat -- build data
+            exit 1
+          fi
+
+      - name: Check for unwanted macOS files
+        run: |
+          if find . -name '.DS_Store' -print -quit | grep -q .; then
+            echo "::error::.DS_Store files found. Remove them before committing/submitting the plugin."
+            find . -name '.DS_Store' -print
+            exit 1
+          fi
+
+  php:
+    name: PHP quality / PHP ${{ matrix.php-version }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - '7.4'
+          - '8.2'
+          - '8.4'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+          tools: composer:v2
+          extensions: mbstring, json, libxml, simplexml, xmlreader, xmlwriter, tokenizer
+
+      - name: Validate composer.json
+        run: composer validate --strict
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Check PHP coding standards
+        run: composer phpcs
+
+      - name: Check PHP syntax
+        run: composer lint:php
+
+      - name: Run PHPStan
+        run: composer phpstan

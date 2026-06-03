@@ -74,6 +74,21 @@ A progress bar with title and percentage value, and the bar at full width below 
 3. Upload the ZIP and click **Install Now**
 4. Click **Activate Plugin**
 
+== Development ==
+
+The source files for the compiled JavaScript and CSS assets are included in the `src/` directory. The compiled production assets in `build/` are generated from these source files.
+
+Source code is also available at:
+https://github.com/jainilnagar/blockloom
+
+To rebuild the assets:
+
+`npm install`
+`npm run generate-icons`
+`npm run build`
+
+The build tooling needed for the compiled assets is included in `package.json`, `package-lock.json`, `webpack.config.js`, and `scripts/generate-icons.js`.
+
 == Frequently Asked Questions ==
 
 = Does this plugin require any page builder? =
